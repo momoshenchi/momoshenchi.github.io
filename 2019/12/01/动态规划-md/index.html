@@ -8,14 +8,14 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>动态规划.md | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="在laluladong的题解里,确实很难理解k的问题文中的模型均来自laluladong的文章戳这里  动态规划问题的分类1.没有最优子结构的比如 斐波那契数列,青蛙跳格子,机器人走方格等等  2.简单状态规划比如 最大连续数列和,最长上升序列等等3.股票问题多种状态,买与卖等等.难点在于多了很多状态,有两条状态转移方程.  股票问题的理解首先上模型框架 123456789base case：dp">
+  <meta name="description" content="在laluladong的题解里,确实很难理解k的问题文中的模型均来自laluladong的文章戳这里  动态规划问题的分类1.没有最优子结构的比如 斐波那契数列,青蛙跳格子,机器人走方格等等 2.简单状态规划比如 最大连续数列和,最长上升序列等等 3.股票问题多种状态,买与卖等等.难点在于多了很多状态,有两条状态转移方程.  股票问题的理解首先上模型框架 123456789base case：dp">
 <meta property="og:type" content="article">
 <meta property="og:title" content="动态规划.md">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;01&#x2F;%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92-md&#x2F;index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="在laluladong的题解里,确实很难理解k的问题文中的模型均来自laluladong的文章戳这里  动态规划问题的分类1.没有最优子结构的比如 斐波那契数列,青蛙跳格子,机器人走方格等等  2.简单状态规划比如 最大连续数列和,最长上升序列等等3.股票问题多种状态,买与卖等等.难点在于多了很多状态,有两条状态转移方程.  股票问题的理解首先上模型框架 123456789base case：dp">
+<meta property="og:description" content="在laluladong的题解里,确实很难理解k的问题文中的模型均来自laluladong的文章戳这里  动态规划问题的分类1.没有最优子结构的比如 斐波那契数列,青蛙跳格子,机器人走方格等等 2.简单状态规划比如 最大连续数列和,最长上升序列等等 3.股票问题多种状态,买与卖等等.难点在于多了很多状态,有两条状态转移方程.  股票问题的理解首先上模型框架 123456789base case：dp">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-12-02T13:06:50.323Z">
+<meta property="og:updated_time" content="2019-12-02T13:20:44.691Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -175,14 +175,13 @@
         <p>在laluladong的题解里,确实很难理解k的问题<br>文中的模型均来自laluladong的文章<br><a href="https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock/solution/yi-ge-fang-fa-tuan-mie-6-dao-gu-piao-wen-ti-by-l-3/" target="_blank" rel="noopener">戳这里</a></p>
 <hr>
 <h1 id="动态规划问题的分类"><a href="#动态规划问题的分类" class="headerlink" title="动态规划问题的分类"></a>动态规划问题的分类</h1><h2 id="1-没有最优子结构的"><a href="#1-没有最优子结构的" class="headerlink" title="1.没有最优子结构的"></a>1.没有最优子结构的</h2><p>比如 斐波那契数列,青蛙跳格子,机器人走方格等等</p>
-<hr>
-<h2 id="2-简单状态规划"><a href="#2-简单状态规划" class="headerlink" title="2.简单状态规划"></a>2.简单状态规划</h2><h2 id="比如-最大连续数列和-最长上升序列等等"><a href="#比如-最大连续数列和-最长上升序列等等" class="headerlink" title="比如 最大连续数列和,最长上升序列等等"></a>比如 最大连续数列和,最长上升序列等等</h2><h2 id="3-股票问题"><a href="#3-股票问题" class="headerlink" title="3.股票问题"></a>3.股票问题</h2><p>多种状态,买与卖等等.<br>难点在于多了很多状态,有两条状态转移方程.</p>
+<h2 id="2-简单状态规划"><a href="#2-简单状态规划" class="headerlink" title="2.简单状态规划"></a>2.简单状态规划</h2><p>比如 最大连续数列和,最长上升序列等等</p>
+<h2 id="3-股票问题"><a href="#3-股票问题" class="headerlink" title="3.股票问题"></a>3.股票问题</h2><p>多种状态,买与卖等等.<br>难点在于多了很多状态,有两条状态转移方程.</p>
 <hr>
 <h1 id="股票问题的理解"><a href="#股票问题的理解" class="headerlink" title="股票问题的理解"></a>股票问题的理解</h1><p>首先上模型框架</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">base case：</span><br><span class="line">dp[-1][k][0] = dp[i][0][0] = 0</span><br><span class="line">dp[-1][k][1] = dp[i][0][1] = -infinity</span><br><span class="line"></span><br><span class="line">状态转移方程：</span><br><span class="line">dp[i][k][0] = max(dp[i-1][k][0], dp[i-1][k][1] + prices[i])</span><br><span class="line">dp[i][k][1] = max(dp[i-1][k][1], dp[i-1][k-1][0] - prices[i])</span><br><span class="line"></span><br><span class="line">初始化的时候,其实dp[0][0][1]是用不到的,一般初始化dp[0][1][1]=-prices[0];</span><br></pre></td></tr></table></figure>
 <p>其中最难理解的<br><font color=orange><strong>k表示至今最多进行k次操作</strong></font><br>所以dp[i][k][1]依赖于比至今少一次操作的dp[i-1][k-1][0],<strong>把买的时候算做一次操作</strong>.<br>k=0时,最多进行0次操作意味着不能买,所以利润必为0.</p>
 <p>读不懂的建议多读几次</p>
-<hr>
 <h2 id="最优子结构"><a href="#最优子结构" class="headerlink" title="最优子结构"></a>最优子结构</h2><p>最优子结构意味着每一步都是区域最大值<br>dp区域最大性(指0-i中最大的)<br>dp当前下标最大性,在有些情况中等于区域最大,比如数据没有负数的情况.<br>算法中有个很重要的思想是用小数据简化思考流程.比如股票类推到只有两三天的情况下思考</p>
 <hr>
 <p>最大连续数列和的思路<br>max(dp[i-1],dp[i-1]+price[i])//这种是price[i]有可能为负数情况,比较出<strong>区域最大值</strong>,解决[1,-3]这种情况.但是[-3,1]这种情况难以解决<br>max(price[i],dp[i-1]+price[i])//这种情况只能得出下标最大值,不能解决[1,-3]这种.就是说前面的数据能否使我递增,不能就取自己<br>两者合并可以得出.max(price[i],dp[i-1]+price[i],dp[i-1]).</p>
